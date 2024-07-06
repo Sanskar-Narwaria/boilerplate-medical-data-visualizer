@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 1
-df=pd.read_csv('medical_examination.csv')
-
+df = df=pd.read_csv('medical_examination.csv')
 # 2
 df['overweight'] = df['overweight']=np.where(df['weight']/np.square(df['height']/100)>25,1,0)
 
@@ -53,12 +52,11 @@ def draw_heat_map():
     
 
     # 15
-     
-    sns.heatmap(corr, mask=mask, ax=ax,cmap='inferno', annot=True,fmt=".1f",linewidth=1,cbar=True, cbar_kws={'location': 'right', 'ticks': [-0.08, 0.00 ,0.08 ,0.16, 0.24],'aspect':30});
-    ax.set(xlabel="", ylabel="")
-    ax.xaxis.tick_bottom()
-    ax.yaxis.tick_left()
-    ax.grid(False)
+    fig=sns.heatmap(corr, mask=mask, ax=ax,cmap='inferno', annot=True,fmt=".1f",linewidth=1,cbar=True, cbar_kws={'location': 'right', 'ticks': [-0.08,0.00,0.08,0.16,0.24],'aspect':30});
+    fig.set(xlabel="", ylabel="")
+    fig.xaxis.tick_bottom()
+    fig.yaxis.tick_left()
+    fig.grid(False)
 
     # 16
     fig.savefig('heatmap.png')
